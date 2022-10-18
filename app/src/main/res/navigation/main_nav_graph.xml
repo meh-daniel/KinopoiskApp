@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="meh.daniel.com.kinopoiskapp.presentation.screens.menu.MenuFragment"
+        android:label="MenuFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="meh.daniel.com.kinopoiskapp.presentation.screens.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="meh.daniel.com.kinopoiskapp.presentation.screens.BasketFragment"
+        android:label="BasketFragment" />
+</navigation>
