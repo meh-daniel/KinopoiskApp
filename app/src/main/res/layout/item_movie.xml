@@ -12,14 +12,14 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/movieView"
         android:layout_width="135dp"
-        android:layout_height="135dp"
+        android:layout_height="200dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         >
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/movieImage"
+            android:id="@+id/moviePoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
