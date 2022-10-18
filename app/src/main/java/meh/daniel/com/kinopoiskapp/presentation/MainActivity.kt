@@ -1,4 +1,4 @@
-package meh.daniel.com.kinopoiskapp.presentaion
+package meh.daniel.com.kinopoiskapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

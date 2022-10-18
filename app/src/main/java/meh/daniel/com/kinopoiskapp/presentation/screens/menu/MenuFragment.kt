@@ -1,4 +1,4 @@
-package meh.daniel.com.kinopoiskapp.presentaion.screens.menu
+package meh.daniel.com.kinopoiskapp.presentation.screens.menu
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
