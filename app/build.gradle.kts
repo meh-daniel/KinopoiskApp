@@ -49,6 +49,7 @@ dependencies {
     implementation(Deps.Network.RETROFIT2_GSON)
     implementation(Deps.Network.LOGGING_INERCEPTOR)
     implementation(Deps.Hilt.ANDROID)
+    implementation(Deps.INJECT)
     implementation(Deps.Room.KTX)
     implementation(Deps.Room.RUNTIME)
     kapt(Deps.Room.COMPILER)

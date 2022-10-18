@@ -12,6 +12,7 @@ object Deps {
         const val RUNTIME = "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycle}"
     }
 
+    const val INJECT = "javax.inject:javax.inject:1"
     object Room {
         private const val room = "2.3.0"
         const val KTX = "androidx.room:room-ktx:${room}"
