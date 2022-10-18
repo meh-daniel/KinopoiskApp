@@ -8,11 +8,11 @@ import retrofit2.http.Query
 interface KinopoiskApi {
 
     @GET("v2.2/films/filters")
-    suspend fun getGenres(): List<GenreNW>
+    suspend fun getGenres(): GenreNW
 
     @GET("v2.2/films")
     suspend fun getMovie(
-        @Query("genres") id: Int,
+        @Query("genres") idGenre: Int,
         @Query("order") order: String,
         @Query("page") page: Int,
     ): MovieNW
