@@ -1,6 +1,5 @@
 package meh.daniel.com.kinopoiskapp.presentation.screens.menu
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.net.ConnectException
@@ -12,8 +11,6 @@ import kotlinx.coroutines.launch
 import meh.daniel.com.kinopoiskapp.core.BaseViewModel
 import meh.daniel.com.kinopoiskapp.domain.MovieRepository
 import meh.daniel.com.kinopoiskapp.domain.model.Genre
-import meh.daniel.com.kinopoiskapp.domain.model.Movie
-import meh.daniel.com.kinopoiskapp.presentation.model.MovieUI
 import meh.daniel.com.kinopoiskapp.presentation.toUI
 
 @HiltViewModel
@@ -31,8 +28,8 @@ class MenuViewModel @Inject constructor(
     fun loadMovieUI() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val movie = repository.getBy(Genre(15, "драма"))
-                val genres = repository.getGenre()
+                val movie = repository.getMovieBy(Genre(15, "драма"))
+                val genres = repository.getGenres()
                 setState(MenuState.Loaded(movie.toUI(), genres.toUI()))
             } catch (e: Throwable) {
                 when (e) {

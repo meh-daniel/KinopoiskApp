@@ -9,7 +9,7 @@ internal fun List<Genre>.toUI(): List<MovieUI.Genre> {
     return map {
         MovieUI.Genre(
             id = it.id,
-            genre = it.genre,
+            genre = it.name,
         )
     }
 }
