@@ -14,41 +14,10 @@ import meh.daniel.com.sundriesstoreapp.R
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
-    private var navController: NavController? = null
-    private val topLevelDestinations = setOf(getMenuDestination(), getBasketDestination(), getProfileDestination())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-        navController = navHostFragment.navController
-        val appBarConfig = AppBarConfiguration(setOf(
-            getMenuDestination(),
-            getBasketDestination(),
-            getProfileDestination(),
-        ))
-        findViewById<BottomNavigationView>(R.id.mainBottomNavigation).setupWithNavController(navController!!)
-        setupActionBarWithNavController(navController!!, appBarConfig)
-        supportActionBar?.setDisplayShowCustomEnabled(true)
+        val navController = navHostFragment.navController
+        findViewById<BottomNavigationView>(R.id.mainBottomNavigation).setupWithNavController(navController)
     }
-
-    override fun onBackPressed() {
-        if (isStartDestination(navController?.currentDestination)) {
-            super.onBackPressed()
-        } else {
-            navController?.popBackStack()
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean = (navController?.navigateUp() ?: false) || super.onSupportNavigateUp()
-
-    private fun isStartDestination(destination: NavDestination?): Boolean {
-        if (destination == null) return false
-        val graph = destination.parent ?: return false
-        val startDestinations = topLevelDestinations + graph.startDestinationId
-        return startDestinations.contains(destination.id)
-    }
-
-    private fun getMenuDestination(): Int = R.id.menuFragment
-    private fun getBasketDestination(): Int = R.id.basketFragment
-    private fun getProfileDestination(): Int = R.id.profileFragment
-
 }

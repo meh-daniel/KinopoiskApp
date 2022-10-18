@@ -9,7 +9,7 @@ internal fun GenreNW.toDomain(): List<Genre> {
     return genres.map {
         Genre(
             id = it.id,
-            genre = it.genre
+            genre = it.genre,
         )
     }
 }
