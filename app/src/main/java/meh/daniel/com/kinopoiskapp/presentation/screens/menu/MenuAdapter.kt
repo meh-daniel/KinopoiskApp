@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import meh.daniel.com.kinopoiskapp.presentation.model.MovieUI
 import meh.daniel.com.sundriesstoreapp.R
 import meh.daniel.com.sundriesstoreapp.databinding.ItemGenreBinding
@@ -36,7 +37,13 @@ class MenuAdapter() : ListAdapter<MovieUI, RecyclerView.ViewHolder>(HeroUIDiffUt
 
 class MovieViewHolder(private val binding: ItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: MovieUI.Movie){
-
+        with(binding){
+            movieName.text = item.name
+            movieDescription.text = item.description
+            Glide.with(moviePoster)
+                .load(item.poster)
+                .into(moviePoster)
+        }
     }
     companion object {
         fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {

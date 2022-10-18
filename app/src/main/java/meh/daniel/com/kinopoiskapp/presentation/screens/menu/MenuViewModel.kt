@@ -1,5 +1,6 @@
 package meh.daniel.com.kinopoiskapp.presentation.screens.menu
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.net.ConnectException
