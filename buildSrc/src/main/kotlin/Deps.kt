@@ -52,6 +52,7 @@ object Deps {
         private const val fragmentKtx = "1.5.0"
         private const val activityKtx = "1.5.0"
         const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${constraintLayout}"
+        const val COORDINATOR_LAYOUT = "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
         const val RECYCLER_VIEW = "androidx.recyclerview:recyclerview:${recyclerView}"
         const val PROGRESS_BAR = "com.mikhaellopez:circularprogressbar:${progressbar}"
         const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${fragmentKtx}"

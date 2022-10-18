@@ -62,6 +62,7 @@ dependencies {
     implementation(Deps.Coroutines.CORE)
     implementation(Deps.Coroutines.ANDROID)
     implementation(Deps.UI.CONSTRAINT_LAYOUT)
+    implementation(Deps.UI.COORDINATOR_LAYOUT)
     implementation(Deps.UI.RECYCLER_VIEW)
     implementation(Deps.UI.PROGRESS_BAR)
     implementation(Deps.UI.FRAGMENT_KTX)
