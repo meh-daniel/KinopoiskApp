@@ -30,9 +30,7 @@ class MenuViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val genres = repository.getGenres()
-                val movie = repository.getMovieBy(Genre(id, "null"))
-                Log.d("xxx123", "id = $id")
-                Log.d("xxx123", movie.toUI().toString())
+                val movie = repository.getMovieBy(id)
                 setState(MenuState.Loaded(movie.toUI(), genres.toUI()))
             } catch (e: Throwable) {
                 when (e) {

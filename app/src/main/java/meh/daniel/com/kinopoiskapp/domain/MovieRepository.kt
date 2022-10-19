@@ -5,7 +5,7 @@ import meh.daniel.com.kinopoiskapp.domain.model.Genre
 import meh.daniel.com.kinopoiskapp.domain.model.Movie
 
 interface MovieRepository {
-    suspend fun getMovieBy(genre: Genre): List<Movie>
+    suspend fun getMovieBy(id: Int): List<Movie>
     suspend fun getGenres(): List<Genre>
     suspend fun getCountries(): List<Country>
     suspend fun getCountry(): Country

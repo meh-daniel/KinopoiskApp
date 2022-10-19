@@ -28,10 +28,10 @@ class MovieRepositoryImpl(
         context.getSharedPreferences(SESSION_PREFERENCES, Context.MODE_PRIVATE)
     }
 
-    override suspend fun getMovieBy(genre: Genre): List<Movie> {
+    override suspend fun getMovieBy(id: Int): List<Movie> {
         return try {
             val movies = api.getMovie(
-                idGenre = genre.id,
+                idGenre = id,
                 order = ORDER,
                 page = PAGE
             )
