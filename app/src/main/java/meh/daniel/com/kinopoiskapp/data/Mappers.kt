@@ -2,6 +2,7 @@ package meh.daniel.com.kinopoiskapp.data
 
 import meh.daniel.com.kinopoiskapp.data.network.model.GenreNW
 import meh.daniel.com.kinopoiskapp.data.network.model.MovieNW
+import meh.daniel.com.kinopoiskapp.data.preferences.CountryPF
 import meh.daniel.com.kinopoiskapp.data.storage.model.CountrySW
 import meh.daniel.com.kinopoiskapp.data.storage.model.GenreSW
 import meh.daniel.com.kinopoiskapp.data.storage.model.MovieSW
@@ -91,4 +92,18 @@ internal fun MovieNW.toSW(): List<MovieSW> {
             poster = it.posterUrlPreview
         )
     }
+}
+
+internal fun Country.toPF(): CountryPF {
+    return CountryPF(
+        id = id.toString(),
+        name = name,
+    )
+}
+
+internal fun CountryPF.toDomain(): Country {
+    return Country(
+        id = id.toInt(),
+        name = name
+    )
 }

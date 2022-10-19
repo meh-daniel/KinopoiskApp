@@ -8,4 +8,6 @@ interface MovieRepository {
     suspend fun getMovieBy(genre: Genre): List<Movie>
     suspend fun getGenres(): List<Genre>
     suspend fun getCountries(): List<Country>
+    suspend fun getCountry(): Country
+    suspend fun setCountry(country: Country)
 }
