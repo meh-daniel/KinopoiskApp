@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="meh.daniel.com.kinopoiskapp.presentation.screens.menu.MenuFragment">
+    tools:context="meh.daniel.com.kinopoiskapp.presentation.screens.menu.MenuFragment"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -13,24 +14,30 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         >
+
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbarLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
             >
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="56dp"
                 app:layout_collapseMode="pin"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/promotionRV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:layout_marginHorizontal="16dp"
                     app:layout_collapseMode="parallax"
                     tools:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -38,6 +45,7 @@
                     />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -52,23 +60,30 @@
                     android:id="@+id/menu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardCornerRadius="20dp">
+                    app:cardCornerRadius="20dp"
+                    >
+
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        >
+
                         <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="4sp"
                             android:text="Moscow"
                             />
+
                         <androidx.constraintlayout.utils.widget.ImageFilterView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:padding="4sp"
-                            android:src="@drawable/ic_arrow_down"/>
+                            android:src="@drawable/ic_arrow_down"
+                            />
+
                     </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.cardview.widget.CardView>
                 <androidx.appcompat.widget.AppCompatImageView
@@ -88,6 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
+        android:background="@color/white"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         >
 
@@ -95,6 +111,7 @@
             android:id="@+id/collapsingToolbarLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
             app:layout_scrollFlags="scroll|enterAlways"
             android:fitsSystemWindows="true"
             >
@@ -115,10 +132,11 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/contentFilms"
+        android:id="@+id/moviesRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="16dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
