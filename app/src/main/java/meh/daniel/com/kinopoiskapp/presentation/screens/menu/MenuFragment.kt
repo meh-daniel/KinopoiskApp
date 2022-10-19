@@ -8,7 +8,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
 import meh.daniel.com.kinopoiskapp.core.BaseFragment
 import meh.daniel.com.kinopoiskapp.core.observeInLifecycle
-import meh.daniel.com.kinopoiskapp.presentation.model.MovieUI
+import meh.daniel.com.kinopoiskapp.presentation.model.MenuUI
+import meh.daniel.com.kinopoiskapp.presentation.screens.menu.adapters.GenreAdapter
+import meh.daniel.com.kinopoiskapp.presentation.screens.menu.adapters.MovieAdapter
+import meh.daniel.com.kinopoiskapp.presentation.screens.menu.adapters.PromotionAdapter
 import meh.daniel.com.sundriesstoreapp.R
 import meh.daniel.com.sundriesstoreapp.databinding.FragmentMenuBinding
 
@@ -18,8 +21,8 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
     override val viewModel: MenuViewModel by viewModels()
 
     private val adapterMovies = MovieAdapter()
-    private val adapterGenres = MovieAdapter()
-    private val adapterPromotion = MovieAdapter()
+    private val adapterGenres = GenreAdapter(onClickGenre = { viewModel.loadMovieByGenre(it) })
+    private val adapterPromotion = PromotionAdapter()
 
     override fun initBinding(
         inflater: LayoutInflater,
@@ -27,7 +30,7 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
     ): FragmentMenuBinding = FragmentMenuBinding.inflate(inflater, container, false)
 
     override fun initialize() {
-        initContentFilmsRV()
+        initMoviesRV()
         initPromotionRV()
         initGenresRV()
     }
@@ -41,10 +44,10 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
             if(state is MenuState.Loaded) {
                 adapterGenres.submitList(state.genres)
                 adapterMovies.submitList(state.movie)
-                adapterPromotion.submitList(mutableListOf<MovieUI>(
-                    MovieUI.Promotion,
-                    MovieUI.Promotion,
-                    MovieUI.Promotion,
+                adapterPromotion.submitList(mutableListOf<MenuUI.Promotion>(
+                    MenuUI.Promotion,
+                    MenuUI.Promotion,
+                    MenuUI.Promotion,
                 ))
             }
         }.observeInLifecycle(this)
@@ -74,10 +77,10 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
         }
     }
 
-    private fun initContentFilmsRV() {
+    private fun initMoviesRV() {
         with(binding) {
-            contentFilms.adapter = adapterMovies
-            contentFilms.layoutManager =
+            moviesRV.adapter = adapterMovies
+            moviesRV.layoutManager =
                 LinearLayoutManager(
                     this@MenuFragment.context,
                     LinearLayoutManager.VERTICAL,

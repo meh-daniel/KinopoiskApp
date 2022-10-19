@@ -38,10 +38,11 @@ class SerialComponentModule {
     @Provides
     @Singleton
     fun provideSerialRepository(
+        @ApplicationContext context: Context,
         api: KinopoiskApi,
         db: MovieDataBase,
     ) : MovieRepository {
-        return MovieRepositoryImpl(api, db)
+        return MovieRepositoryImpl(context, api, db)
     }
 
 }

@@ -23,15 +23,16 @@ class MenuViewModel @Inject constructor(
     var state = _state.asStateFlow()
 
     init {
-        loadMovieUI()
+        loadMovieByGenre(1)
     }
 
-    fun loadMovieUI() {
+    fun loadMovieByGenre(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val movie = repository.getMovieBy(Genre(15, "драма"))
                 val genres = repository.getGenres()
-                Log.d("xxx123", genres.toUI().toString())
+                val movie = repository.getMovieBy(Genre(id, "null"))
+                Log.d("xxx123", "id = $id")
+                Log.d("xxx123", movie.toUI().toString())
                 setState(MenuState.Loaded(movie.toUI(), genres.toUI()))
             } catch (e: Throwable) {
                 when (e) {
