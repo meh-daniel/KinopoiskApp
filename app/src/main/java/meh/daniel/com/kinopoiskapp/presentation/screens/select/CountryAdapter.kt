@@ -31,7 +31,7 @@ class CountryAdapter() : ListAdapter<CountryUI, RecyclerView.ViewHolder>(Country
 class CountryViewHolder(private val binding: ItemCountryBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: CountryUI.Country){
         with(binding){
-
+            country.text = item.name
         }
     }
     companion object {
