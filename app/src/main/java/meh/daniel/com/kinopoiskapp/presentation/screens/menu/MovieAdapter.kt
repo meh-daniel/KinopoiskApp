@@ -12,7 +12,7 @@ import meh.daniel.com.sundriesstoreapp.databinding.ItemGenreBinding
 import meh.daniel.com.sundriesstoreapp.databinding.ItemMovieBinding
 import meh.daniel.com.sundriesstoreapp.databinding.ItemPromotionBinding
 
-class MenuAdapter() : ListAdapter<MovieUI, RecyclerView.ViewHolder>(HeroUIDiffUtil()) {
+class MovieAdapter() : ListAdapter<MovieUI, RecyclerView.ViewHolder>(HeroUIDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = when(viewType) {
         R.layout.item_movie -> MovieViewHolder.onCreateViewHolder(parent)
         R.layout.item_genre -> GenreViewHolder.onCreateViewHolder(parent)

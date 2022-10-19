@@ -17,9 +17,9 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
 
     override val viewModel: MenuViewModel by viewModels()
 
-    private val adapterMovies = MenuAdapter()
-    private val adapterGenres = MenuAdapter()
-    private val adapterPromotion = MenuAdapter()
+    private val adapterMovies = MovieAdapter()
+    private val adapterGenres = MovieAdapter()
+    private val adapterPromotion = MovieAdapter()
 
     override fun initBinding(
         inflater: LayoutInflater,
