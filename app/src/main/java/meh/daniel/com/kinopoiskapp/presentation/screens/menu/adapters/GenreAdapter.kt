@@ -48,6 +48,8 @@ class GenreViewHolder(private val binding: ItemGenreBinding, private val onClick
         binding.root.setOnClickListener {
             onClickGenre(item.id)
             item.onClick = !item.onClick
+            binding.genreButtonText.setTextColor(Color.parseColor("#FD3A69"))
+            binding.genreButton.background.setTint(Color.parseColor("#33FC3A67"))
         }
     }
 

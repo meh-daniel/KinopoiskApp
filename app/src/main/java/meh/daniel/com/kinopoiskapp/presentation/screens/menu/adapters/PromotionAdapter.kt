@@ -9,7 +9,7 @@ import meh.daniel.com.kinopoiskapp.presentation.model.MenuUI
 import meh.daniel.com.sundriesstoreapp.R
 import meh.daniel.com.sundriesstoreapp.databinding.ItemPromotionBinding
 
-class PromotionAdapter : ListAdapter<MenuUI.Promotion, RecyclerView.ViewHolder>(PromotionUIDiffUtil()) {
+class PromotionAdapter: ListAdapter<MenuUI.Promotion, RecyclerView.ViewHolder>(PromotionUIDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = when(viewType) {
         R.layout.item_promotion -> PromotionViewHolder.onCreateViewHolder(parent)
         else -> throw Throwable("onCreateViewHolder exception - unknown view type by name: $viewType")
