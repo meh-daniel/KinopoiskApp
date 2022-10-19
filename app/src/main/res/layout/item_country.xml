@@ -8,6 +8,7 @@
     >
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/country"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center_vertical"
@@ -19,5 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="country"
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

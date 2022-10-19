@@ -12,7 +12,7 @@ import meh.daniel.com.sundriesstoreapp.databinding.ItemGenreBinding
 import meh.daniel.com.sundriesstoreapp.databinding.ItemMovieBinding
 import meh.daniel.com.sundriesstoreapp.databinding.ItemPromotionBinding
 
-class MovieAdapter() : ListAdapter<MovieUI, RecyclerView.ViewHolder>(HeroUIDiffUtil()) {
+class MovieAdapter() : ListAdapter<MovieUI, RecyclerView.ViewHolder>(MovieUIDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = when(viewType) {
         R.layout.item_movie -> MovieViewHolder.onCreateViewHolder(parent)
         R.layout.item_genre -> GenreViewHolder.onCreateViewHolder(parent)
@@ -80,7 +80,7 @@ class PromotionViewHolder(private val binding: ItemPromotionBinding) : RecyclerV
     }
 }
 
-class HeroUIDiffUtil: DiffUtil.ItemCallback<MovieUI>() {
+class MovieUIDiffUtil: DiffUtil.ItemCallback<MovieUI>() {
     override fun areItemsTheSame(oldItem: MovieUI, newItem: MovieUI): Boolean = oldItem == newItem
     override fun areContentsTheSame(oldItem: MovieUI, newItem: MovieUI): Boolean = oldItem == newItem
 }
