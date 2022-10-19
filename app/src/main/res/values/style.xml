@@ -15,10 +15,16 @@
         <item name="android:maxLines">5</item>
         <item name="android:ellipsize">end</item>
     </style>
-    <style name="itemMovieButton">
+
+    <style name="itemMovieButtonText">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">#FD3A69</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="itemGenreButtonText">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#FD3A69</item>
     </style>
 
 </resources>

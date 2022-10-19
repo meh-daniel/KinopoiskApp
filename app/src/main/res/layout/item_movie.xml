@@ -65,7 +65,7 @@
         app:cornerRadius="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/movieView"
         app:layout_constraintEnd_toEndOf="parent"
-        style="@style/itemMovieButton"
+        style="@style/itemMovieButtonText"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

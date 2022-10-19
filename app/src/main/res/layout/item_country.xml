@@ -12,15 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center_vertical"
+        android:paddingStart="8dp"
         android:textSize="23sp"
         android:textColor="@color/black"
-        android:paddingStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="country"
         />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
