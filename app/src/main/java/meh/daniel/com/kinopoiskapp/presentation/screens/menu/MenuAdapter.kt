@@ -56,7 +56,7 @@ class MovieViewHolder(private val binding: ItemMovieBinding) : RecyclerView.View
 
 class GenreViewHolder(private val binding: ItemGenreBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: MovieUI.Genre) {
-
+        binding.genreButton.text = item.genre
     }
     companion object {
         fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {

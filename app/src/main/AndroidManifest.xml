@@ -16,6 +16,7 @@
         android:name="meh.daniel.com.kinopoiskapp.App">
         <activity
             android:name="meh.daniel.com.kinopoiskapp.presentation.MainActivity"
+            android:theme="@style/Theme.KinopoiskApp.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

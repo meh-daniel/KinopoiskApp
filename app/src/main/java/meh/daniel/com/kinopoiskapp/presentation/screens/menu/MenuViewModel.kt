@@ -1,5 +1,6 @@
 package meh.daniel.com.kinopoiskapp.presentation.screens.menu
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.net.ConnectException
@@ -30,6 +31,7 @@ class MenuViewModel @Inject constructor(
             try {
                 val movie = repository.getMovieBy(Genre(15, "драма"))
                 val genres = repository.getGenres()
+                Log.d("xxx123", genres.toUI().toString())
                 setState(MenuState.Loaded(movie.toUI(), genres.toUI()))
             } catch (e: Throwable) {
                 when (e) {
