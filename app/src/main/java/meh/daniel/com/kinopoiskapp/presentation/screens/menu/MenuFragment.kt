@@ -79,10 +79,10 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
         viewModel.actionFlow.onEach { action ->
             when(action) {
                 is MenuAction.ScanQRCode -> {
-                    Snackbar.make(binding.root, "You Scanned: заглушка", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.scan), Snackbar.LENGTH_SHORT).show()
                 }
                 is MenuAction.SelectedCountry -> {
-                    Snackbar.make(binding.root, "You Select City: заглушка", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, getString(R.string.select), Snackbar.LENGTH_SHORT).show()
                 }
             }
         }.observeInLifecycle(viewLifecycleOwner)
@@ -106,8 +106,8 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
             chipGenre.id = i.id
             chipGenre.tag = i.onClick
             chipGenre.text = i.genre
-            chipGenre.setTextColor(Color.parseColor("#C3C4C9"))
-            chipGenre.background.setTint(Color.parseColor("#2BBEBEBE"))
+            chipGenre.setTextColor(Color.parseColor(resources.getString(R.color.secondText)))
+            chipGenre.background.setTint(Color.parseColor(resources.getString(R.color.secondNothing)))
             chipGenre.setChipDrawable(ChipDrawable.createFromAttributes(
                 chipGenre.context,
                 null,
@@ -121,11 +121,11 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
             chipSetOnClick.setOnCheckedChangeListener { view, isChecked ->
                 if(isChecked) {
                     viewModel.loadMovieByGenre(view.id)
-                    view.setTextColor(Color.parseColor("#FD3A69"))
-                    view.background.setTint(Color.parseColor("#33FD3A69"))
+                    view.setTextColor(Color.parseColor(resources.getString(R.color.secondText)))
+                    view.background.setTint(Color.parseColor(resources.getString(R.color.secondNothing)))
                 } else {
-                    view.setTextColor(Color.parseColor("#C3C4C9"))
-                    view.background.setTint(Color.parseColor("#2BBEBEBE"))
+                    view.setTextColor(Color.parseColor(resources.getString(R.color.firstText)))
+                    view.background.setTint(Color.parseColor(resources.getString(R.color.firstNothing)))
                 }
             }
         }

@@ -30,11 +30,11 @@ class MovieRepositoryImpl(
 
     override suspend fun getGenres(): List<Genre> {
         return try {
-            db.movieDao().getAllGenres().toDomain()
-        } catch (e: Throwable) {
             val genres = api.getGenres()
             db.movieDao().insertGenres(genres.toSW())
             genres.toDomain()
+        } catch (e: Throwable) {
+            db.movieDao().getAllGenres().toDomain()
         }
     }
 
