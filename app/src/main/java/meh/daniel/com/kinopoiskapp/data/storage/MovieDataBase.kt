@@ -4,13 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import meh.daniel.com.kinopoiskapp.data.storage.model.CountrySW
 import meh.daniel.com.kinopoiskapp.data.storage.model.GenreSW
 import meh.daniel.com.kinopoiskapp.data.storage.model.MovieSW
 
 @Database(
     entities = arrayOf(
-        CountrySW::class,
         GenreSW::class,
         MovieSW::class,
     ),

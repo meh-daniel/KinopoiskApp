@@ -64,10 +64,14 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
                 }
 
                 moviesRV.visibility = if(state is MenuState.LoadedMovie) View.VISIBLE else View.GONE
+
                 if(state is MenuState.LoadedMovie) {
                     adapterMovies.submitList(state.movie)
                 } else adapterMovies.submitList(mutableListOf())
 
+                if(state is MenuState.Error) {
+                    Snackbar.make(binding.root, state.error, Snackbar.LENGTH_SHORT).show()
+                }
             }
         }.observeInLifecycle(this)
     }
@@ -75,10 +79,10 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
         viewModel.actionFlow.onEach { action ->
             when(action) {
                 is MenuAction.ScanQRCode -> {
-                    Snackbar.make(binding.root, "You Scanned: Scan Scan Scan", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, "You Scanned: заглушка", Snackbar.LENGTH_SHORT).show()
                 }
                 is MenuAction.SelectedCountry -> {
-
+                    Snackbar.make(binding.root, "You Select City: заглушка", Snackbar.LENGTH_SHORT).show()
                 }
             }
         }.observeInLifecycle(viewLifecycleOwner)

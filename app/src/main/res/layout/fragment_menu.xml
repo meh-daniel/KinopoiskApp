@@ -122,7 +122,6 @@
             android:id="@+id/collapsingToolbarLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
             app:layout_scrollFlags="scroll|enterAlways"
             android:fitsSystemWindows="true"
             >
@@ -167,9 +166,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moviesRV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="40dp"
         android:visibility="gone"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         />

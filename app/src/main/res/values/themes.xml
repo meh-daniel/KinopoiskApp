@@ -13,10 +13,6 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-        <style name="Theme.KinopoiskApp.NoActionBar">
-            <item name="windowActionBar">false</item>
-            <item name="windowNoTitle">true</item>
-        </style>
     <!--    <style name="AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">-->
     <!--        <item name="android:textColorPrimary">@color/white</item>-->
     <!--        <item name="android:textColorSecondary">@color/white</item>-->
