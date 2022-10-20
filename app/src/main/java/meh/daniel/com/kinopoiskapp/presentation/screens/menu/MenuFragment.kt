@@ -1,12 +1,10 @@
 package meh.daniel.com.kinopoiskapp.presentation.screens.menu
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipDrawable
@@ -16,7 +14,6 @@ import kotlinx.coroutines.flow.onEach
 import meh.daniel.com.kinopoiskapp.core.BaseFragment
 import meh.daniel.com.kinopoiskapp.core.observeInLifecycle
 import meh.daniel.com.kinopoiskapp.presentation.model.MenuUI
-import meh.daniel.com.kinopoiskapp.presentation.screens.menu.adapters.GenreAdapter
 import meh.daniel.com.kinopoiskapp.presentation.screens.menu.adapters.MovieAdapter
 import meh.daniel.com.kinopoiskapp.presentation.screens.menu.adapters.PromotionAdapter
 import meh.daniel.com.sundriesstoreapp.R
@@ -28,7 +25,6 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
     override val viewModel: MenuViewModel by viewModels()
 
     private val adapterMovies = MovieAdapter()
-    private val adapterGenres = GenreAdapter(onClickGenre = { viewModel.loadMovieByGenre(it) })
     private val adapterPromotion = PromotionAdapter()
 
     override fun initBinding(
@@ -39,7 +35,6 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
     override fun initialize() {
         initMoviesRV()
         initPromotionRV()
-        initChipGroup()
     }
 
     override fun setupSubscribers() {
@@ -65,7 +60,7 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
                     appBarLayout1.visibility = View.VISIBLE
                     appBarLayout2.visibility = View.VISIBLE
                     adapterPromotion.submitList(state.promotion)
-                    addGenresToGroup(state.genres)
+                    initGenresList(state.genres)
                 }
 
                 moviesRV.visibility = if(state is MenuState.LoadedMovie) View.VISIBLE else View.GONE
@@ -83,7 +78,7 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
                     Snackbar.make(binding.root, "You Scanned: Scan Scan Scan", Snackbar.LENGTH_SHORT).show()
                 }
                 is MenuAction.SelectedCountry -> {
-                    findNavController().navigate(R.id.action_menuFragment_to_selectFragment)
+
                 }
             }
         }.observeInLifecycle(viewLifecycleOwner)
@@ -101,8 +96,7 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
         }
     }
 
-    private fun addGenresToGroup(genres: List<MenuUI.Genre>) {
-
+    private fun initGenresList(genres: List<MenuUI.Genre>) {
         for (i in genres) {
             val chipGenre = Chip(context)
             chipGenre.id = i.id
@@ -122,7 +116,7 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
             val chipSetOnClick: Chip = binding.genresChipGroup.getChildAt(index) as Chip
             chipSetOnClick.setOnCheckedChangeListener { view, isChecked ->
                 if(isChecked) {
-                    Log.d("xxx123", "click ${view?.id} ${view?.tag}")
+                    viewModel.loadMovieByGenre(view.id)
                     view.setTextColor(Color.parseColor("#FD3A69"))
                     view.background.setTint(Color.parseColor("#33FD3A69"))
                 } else {
@@ -131,10 +125,6 @@ class MenuFragment: BaseFragment<MenuViewModel, FragmentMenuBinding>(R.layout.fr
                 }
             }
         }
-    }
-
-    private fun initChipGroup() =  with(binding) {
-
     }
 
     private fun initMoviesRV() = with(binding) {
